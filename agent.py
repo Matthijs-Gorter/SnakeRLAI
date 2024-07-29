@@ -127,6 +127,9 @@ def train():
 
         # remember
         agent.remember(state_old, final_move, reward, state_new, done)
+        end_time = time.time()
+
+        print('Game:', agent.n_games, '\tScore:', score, '\tRecord:', record, "\tElapsed time (s):", end_time - start_time)
 
         if done:
 
@@ -145,7 +148,7 @@ def train():
             mean_score = total_score / agent.n_games
             plot_mean_scores.append(mean_score)           
     
-            if agent.n_games == 2001:
+            if agent.n_games == 200:
                 end_time = time.time()
                 elapsed_time = end_time - start_time
                 print('Game:', agent.n_games, '\tScore:', score, '\tRecord:', record, "\tElapsed time (s):", elapsed_time)
